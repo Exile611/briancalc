@@ -12,10 +12,55 @@
 
   <div class="container">
     <h1>Delusional Calculator</h1>
+
+    <!-- Calculator Form -->
     <form id="calculator-form">
-      <!-- Your input fields here (gender, height, income, etc.) -->
+      <!-- Gender Selection -->
+      <label for="gender">Gender</label>
+      <select id="gender">
+        <option value="female">Female</option>
+        <option value="male">Male</option>
+      </select>
+
+      <!-- Height Slider -->
+      <label for="height">Height (in inches)</label>
+      <input type="range" id="height" name="height" min="40" max="100" value="65" step="1" oninput="this.nextElementSibling.value = this.value">
+      <output>65</output>
+
+      <!-- Income Slider -->
+      <label for="income">Income (in USD)</label>
+      <input type="range" id="income" name="income" min="0" max="500000" value="50000" step="1000" oninput="this.nextElementSibling.value = this.value">
+      <output>50000</output>
+
+      <!-- Obesity Checkbox -->
+      <label for="obese">Obese (Y/N)</label>
+      <select id="obese">
+        <option value="Y">Yes</option>
+        <option value="N">No</option>
+      </select>
+
+      <!-- Marital Status Selection -->
+      <label for="marital-status">Marital Status</label>
+      <select id="marital-status">
+        <option value="single">Single</option>
+        <option value="married">Married</option>
+        <option value="divorced">Divorced</option>
+      </select>
+
+      <!-- Race Checkboxes -->
+      <fieldset>
+        <legend>Race</legend>
+        <label><input type="checkbox" name="race" value="White"> White</label>
+        <label><input type="checkbox" name="race" value="Hispanic"> Hispanic</label>
+        <label><input type="checkbox" name="race" value="Black"> Black</label>
+        <label><input type="checkbox" name="race" value="Asian"> Asian</label>
+        <label><input type="checkbox" name="race" value="Other"> Other</label>
+      </fieldset>
+
+      <button type="submit">Calculate</button>
     </form>
 
+    <!-- Output Section -->
     <div id="output">
       <p id="percentage-result">Percentage of people meeting criteria: <span>0%</span></p>
     </div>
