@@ -104,4 +104,32 @@ document.getElementById('calculator-form').addEventListener('submit', function(e
 
   // Display result
   document.querySelector('#percentage-result span').textContent = `${percentage.toFixed(2)}%`;
+
+  // Dark Mode Toggle
+const modeToggleButton = document.getElementById('mode-toggle');
+const bodyElement = document.body;
+
+// Set default dark mode
+if (!localStorage.getItem('theme')) {
+  localStorage.setItem('theme', 'dark');
+} else {
+  if (localStorage.getItem('theme') === 'light') {
+    bodyElement.classList.add('light-mode');
+  }
+}
+
+modeToggleButton.addEventListener('click', () => {
+  // Toggle between light and dark mode
+  bodyElement.classList.toggle('light-mode');
+
+  // Save the current theme to localStorage
+  if (bodyElement.classList.contains('light-mode')) {
+    localStorage.setItem('theme', 'light');
+    modeToggleButton.textContent = '☀️'; // Sun icon for light mode
+  } else {
+    localStorage.setItem('theme', 'dark');
+    modeToggleButton.textContent = '🌙'; // Moon icon for dark mode
+  }
+});
+
 });
