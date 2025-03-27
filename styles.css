@@ -1,7 +1,16 @@
-/* General Page Styles */
+/* Default to Dark Mode */
+:root {
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --button-bg: #28a745;
+  --button-text-color: white;
+  --button-hover-bg: #218838;
+}
+
 body {
+  background-color: var(--background-color);
+  color: var(--text-color);
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
   margin: 0;
   padding: 0;
 }
@@ -10,10 +19,50 @@ body {
   width: 100%;
   max-width: 600px;
   margin: 50px auto;
-  background-color: white;
+  background-color: #1e1e1e;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  background-color: var(--button-bg);
+  color: var(--button-text-color);
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--button-hover-bg);
+}
+
+/* Light Mode */
+.light-mode {
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --button-bg: #007bff;
+  --button-text-color: white;
+  --button-hover-bg: #0056b3;
+}
+
+#mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 1000;
+}
+
+#mode-toggle:hover {
+  background-color: #555;
 }
 
 h1 {
