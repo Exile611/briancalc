@@ -3,8 +3,8 @@ document.getElementById('calculator-form').addEventListener('submit', function(e
 
   // Get form values
   const gender = document.getElementById('gender').value;
-  const height = parseInt(document.getElementById('height').value);
-  const income = parseInt(document.getElementById('income').value);
+  const height = parseInt(document.getElementById('height').value); // Height from slider
+  const income = parseInt(document.getElementById('income').value); // Income from slider
   const obese = document.getElementById('obese').value;
   const maritalStatus = document.getElementById('marital-status').value;
 
