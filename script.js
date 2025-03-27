@@ -1,6 +1,7 @@
 // Dark Mode Toggle
 const modeToggleButton = document.getElementById('mode-toggle');
 const bodyElement = document.body;
+const tableElement = document.querySelector('table');
 
 // Default to Dark Mode
 if (!localStorage.getItem('theme')) {
@@ -8,12 +9,14 @@ if (!localStorage.getItem('theme')) {
 } else {
   if (localStorage.getItem('theme') === 'light') {
     bodyElement.classList.add('light-mode');
+    tableElement.classList.add('light-mode'); // Apply light mode to the table as well
   }
 }
 
 modeToggleButton.addEventListener('click', () => {
   // Toggle between light and dark mode
   bodyElement.classList.toggle('light-mode');
+  tableElement.classList.toggle('light-mode'); // Apply light mode to the table as well
 
   // Save the current theme to localStorage
   if (bodyElement.classList.contains('light-mode')) {
