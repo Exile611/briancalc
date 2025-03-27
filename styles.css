@@ -31,6 +31,7 @@ h1 {
   font-size: 24px;
   text-align: center;
   margin-bottom: 20px;
+  color: #FFFFFF;
 }
 
 form {
@@ -65,7 +66,7 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 24px;
 }
 
 button:hover {
@@ -133,6 +134,7 @@ tr:hover {
 @media only screen and (max-width: 600px) {
   h1 {
     font-size: 20px;
+    color: #FFFFFF;
   }
 
   .container {
@@ -155,6 +157,7 @@ tr:hover {
 
   table th, table td {
     font-size: 14px;
+    color: #FFFFFF;
   }
 
   table {
