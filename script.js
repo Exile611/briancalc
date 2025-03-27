@@ -1,3 +1,31 @@
+// Dark Mode Toggle
+const modeToggleButton = document.getElementById('mode-toggle');
+const bodyElement = document.body;
+
+// Default to Dark Mode
+if (!localStorage.getItem('theme')) {
+  localStorage.setItem('theme', 'dark');
+} else {
+  if (localStorage.getItem('theme') === 'light') {
+    bodyElement.classList.add('light-mode');
+  }
+}
+
+modeToggleButton.addEventListener('click', () => {
+  // Toggle between light and dark mode
+  bodyElement.classList.toggle('light-mode');
+
+  // Save the current theme to localStorage
+  if (bodyElement.classList.contains('light-mode')) {
+    localStorage.setItem('theme', 'light');
+    modeToggleButton.textContent = '☀️'; // Sun icon for light mode
+  } else {
+    localStorage.setItem('theme', 'dark');
+    modeToggleButton.textContent = '🌙'; // Moon icon for dark mode
+  }
+});
+
+// Calculate the percentage
 document.getElementById('calculator-form').addEventListener('submit', function(event) {
   event.preventDefault(); // Prevent form submission
 
@@ -86,50 +114,14 @@ document.getElementById('calculator-form').addEventListener('submit', function(e
     else maritalStatusPercentage = 0.20; // Divorced
   } else if (gender === 'male') {
     if (maritalStatus === 'single') maritalStatusPercentage = 0.30;
-    else if (maritalStatus === 'married') maritalStatusPercentage = 0.55;
-    else maritalStatusPercentage = 0.15; // Divorced
+    else if (maritalStatus === 'married') maritalStatusPercentage = 0.60;
+    else maritalStatusPercentage = 0.20; // Divorced
   }
 
-  // Population calculation (simplified example formula)
-  const totalPopulation = 335000000;
-  const genderPopulation = totalPopulation * 0.5; // 50% male/female
-  const raceAdjustedPopulation = (genderPopulation * racePercentage) / 100;
-  const heightAdjustedPopulation = (raceAdjustedPopulation * heightPercentage) / 100;
-  const incomeAdjustedPopulation = (heightAdjustedPopulation * incomePercentage) / 100;
-  const obesityAdjustedPopulation = incomeAdjustedPopulation * obesityFactor;
-  const maritalStatusAdjustedPopulation = obesityAdjustedPopulation * maritalStatusPercentage;
+  // Final Calculation
+  let totalPercentage = heightPercentage * (racePercentage / 100) * incomePercentage * obesityFactor * maritalStatusPercentage;
+  totalPercentage = totalPercentage.toFixed(2); // Round the result to two decimal places
 
-  // Calculate percentage
-  const percentage = (maritalStatusAdjustedPopulation / totalPopulation) * 100;
-
-  // Display result
-  document.querySelector('#percentage-result span').textContent = `${percentage.toFixed(2)}%`;
-
-  // Dark Mode Toggle
-const modeToggleButton = document.getElementById('mode-toggle');
-const bodyElement = document.body;
-
-// Set default dark mode
-if (!localStorage.getItem('theme')) {
-  localStorage.setItem('theme', 'dark');
-} else {
-  if (localStorage.getItem('theme') === 'light') {
-    bodyElement.classList.add('light-mode');
-  }
-}
-
-modeToggleButton.addEventListener('click', () => {
-  // Toggle between light and dark mode
-  bodyElement.classList.toggle('light-mode');
-
-  // Save the current theme to localStorage
-  if (bodyElement.classList.contains('light-mode')) {
-    localStorage.setItem('theme', 'light');
-    modeToggleButton.textContent = '☀️'; // Sun icon for light mode
-  } else {
-    localStorage.setItem('theme', 'dark');
-    modeToggleButton.textContent = '🌙'; // Moon icon for dark mode
-  }
-});
-
+  // Display Result
+  document.getElementById('percentage-result').innerHTML = `Percentage of people meeting criteria: <span>${totalPercentage}%</span>`;
 });
