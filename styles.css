@@ -18,13 +18,44 @@ body {
 }
 
 .container {
-  width: 100%;
-  max-width: 600px;
+  width: 90%;
+  max-width: 480px; /* Limit the max width for mobile */
   margin: 50px auto;
   background-color: #1e1e1e;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+select, input[type="range"], button {
+  margin-bottom: 15px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+output {
+  font-size: 16px;
+  margin-top: 5px;
 }
 
 button {
@@ -34,6 +65,7 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
 }
 
 button:hover {
@@ -95,4 +127,37 @@ th {
 
 tr:hover {
   background-color: #ddd;
+}
+
+/* Mobile Responsiveness */
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  .container {
+    padding: 15px;
+    margin: 20px auto;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  select, input[type="range"], button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  output {
+    font-size: 14px;
+  }
+
+  table th, table td {
+    font-size: 14px;
+  }
+
+  table {
+    margin-top: 15px;
+  }
 }
