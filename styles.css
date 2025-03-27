@@ -56,9 +56,11 @@ button:hover {
 #output {
   margin-top: 20px;
   text-align: center;
+  font-size: 1.2em;
 }
 
 #percentage-result span {
   font-weight: bold;
   font-size: 1.5em;
+  color: #007bff;
 }
