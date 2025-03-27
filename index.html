@@ -1,22 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delusional Calculator</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delusional Calculator</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Delusional Calculator</h1>
-        <p>Enter a thought, statement, or question, and let me tell you how delusional you are! 😎</p>
-        
-        <input type="text" id="user-input" placeholder="Enter something...">
-        <button onclick="getDelusionalResponse()">Calculate Delusion</button>
-        
-        <div id="result"></div>
-    </div>
 
-    <script src="script.js"></script>
+  <div class="container">
+    <h1>Delusional Calculator</h1>
+    <form id="calculator-form">
+      <label for="gender">Desired Gender/Sex</label>
+      <select id="gender" name="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="height">Height (in cm)</label>
+      <input type="number" id="height" name="height" min="50" max="300">
+
+      <label for="income">Income (in USD)</label>
+      <input type="number" id="income" name="income" min="0">
+
+      <label for="obese">Obese?</label>
+      <select id="obese" name="obese">
+        <option value="Y">Yes</option>
+        <option value="N">No</option>
+      </select>
+
+      <label for="race">Race</label>
+      <div class="checkbox-group">
+        <input type="checkbox" id="race1" name="race" value="Caucasian"> Caucasian
+        <input type="checkbox" id="race2" name="race" value="Asian"> Asian
+        <input type="checkbox" id="race3" name="race" value="Black"> Black
+        <input type="checkbox" id="race4" name="race" value="Latino"> Latino
+        <!-- Add more races if needed -->
+      </div>
+
+      <label for="marital-status">Marital Status</label>
+      <select id="marital-status" name="marital-status">
+        <option value="single">Single</option>
+        <option value="married">Married</option>
+        <option value="divorced">Divorced</option>
+      </select>
+
+      <button type="submit">Calculate</button>
+    </form>
+
+    <div id="output">
+      <p id="percentage-result">Percentage of people meeting criteria: <span>0%</span></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
